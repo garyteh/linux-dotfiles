@@ -88,7 +88,11 @@ Usage: idea path[:number]
 Open an arbitrary file, folder, or project for editing in IntelliJ IDEA.
 For more information, please visit https://www.jetbrains.com/help/idea/opening-files-from-command-line.html.
 EOF
-    [[ $# -lt 1 ]] && $idea_bin_path . || $idea_bin_path "$@"
+    if [[ $# -lt 1 ]]; then
+        nohup $idea_bin_path . &> /dev/null &
+    else
+        nohup $idea_bin_path "$@" &> /dev/null &
+    fi
 }
 
 function idea-diff() {
@@ -100,7 +104,7 @@ Usage: idea-diff path1 path2
 Viewing differences between files in IntelliJ IDEA.
 For more information, please visit https://www.jetbrains.com/help/idea/command-line-differences-viewer.html.
 EOF
-    $idea_bin_path diff "$@"
+    nohup $idea_bin_path diff "$@" &> /dev/null &
 }
 
 function idea-merge() {
@@ -112,7 +116,7 @@ Usage: idea-merge path1 path2 [path3] output
 Merge files in IntelliJ IDEA.
 For more information, please visit https://www.jetbrains.com/help/idea/command-line-merge-tool.html.
 EOF
-    $idea_bin_path merge "$@"
+    nohup $idea_bin_path merge "$@" &> /dev/null &
 }
 
 function nvm() {
