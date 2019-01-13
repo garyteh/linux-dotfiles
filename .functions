@@ -115,6 +115,28 @@ EOF
     $idea_bin_path merge "$@"
 }
 
+function nvm() {
+    [[ ! -e "$NVM_DIR" ]] && (>&2 echo "nvm is not found in [$NVM_DIR].") && return 1
+    unset -f nvm
+    source $NVM_DIR/nvm.sh
+    nvm "$@"
+}
+
+function node() {
+    [[ ! -e "$NVM_DIR" ]] && (>&2 echo "nvm is not found in [$NVM_DIR].") && return 1
+    unset -f node
+    source $NVM_DIR/nvm.sh
+    node "$@"
+}
+
+function npm() {
+    [[ ! -e "$NVM_DIR" ]] && (>&2 echo "nvm is not found in [$NVM_DIR].") && return 1
+    unset -f npm
+    source $NVM_DIR/nvm.sh
+    source <(npm completion)
+    npm "$@"
+}
+
 function rbenv() {
     unset -f rbenv
     eval "$(rbenv init -)"
