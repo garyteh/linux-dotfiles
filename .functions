@@ -131,6 +131,18 @@ function webstorm-merge() {
     (>&2 echo "Operation not supported.") && return 1
 }
 
+function webstorm() {
+    (>&2 echo "Operation not supported.") && return 1
+}
+
+function webstorm-diff() {
+    (>&2 echo "Operation not supported.") && return 1
+}
+
+function webstorm-merge() {
+    (>&2 echo "Operation not supported.") && return 1
+}
+
 function nvm() {
     [[ ! -e "$NVM_DIR" ]] && (>&2 echo "nvm is not found in [$NVM_DIR].") && return 1
     unset -f nvm
