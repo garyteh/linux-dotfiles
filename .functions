@@ -181,6 +181,30 @@ function npm() {
     npm "$@"
 }
 
+function webstorm() {
+    (>&2 echo "Operation not supported.") && return 1
+}
+
+function webstorm-diff() {
+    (>&2 echo "Operation not supported.") && return 1
+}
+
+function webstorm-merge() {
+    (>&2 echo "Operation not supported.") && return 1
+}
+
+function nvm() {
+    (>&2 echo "Operation not supported.") && return 1
+}
+
+function node() {
+    (>&2 echo "Operation not supported.") && return 1
+}
+
+function npm() {
+    (>&2 echo "Operation not supported.") && return 1
+}
+
 function rbenv() {
     unset -f rbenv
     eval "$(rbenv init -)"
@@ -191,4 +215,12 @@ function jenv() {
     unset -f jenv
     eval "$(jenv init -)"
     jenv "$@"
+}
+
+function top-cpu() {
+    (>&2 echo "Operation not supported.") && return 1
+}
+
+function top-memory() {
+    (>&2 echo "Operation not supported.") && return 1
 }

@@ -13,7 +13,7 @@
   ci = commit
   st = status
   sb = show-branch
-  up = !git fetch origin && git rebase origin/master
+  up = !_git_fetch_and_merge
   l = "!git --no-pager lg -10; echo"
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --all
   who = log --format="'%ai %h %aN %s'"
@@ -22,6 +22,8 @@
   lbc = !_git_local_branch_cleanup
   fc = clean -fd
   hk = "!git rpo && git lbc && git clean -df"
+  bpr = browse -- pulls
+  spurs = !_git_stash_and_pull
 
 [apply]
   whitespace = nowarn
